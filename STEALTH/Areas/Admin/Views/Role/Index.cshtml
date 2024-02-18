@@ -1,0 +1,80 @@
+﻿@model List<Role>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <a asp-controller="Role" asp-action="AddRole" class="btn btn-primary btn-rounded btn-fw">Add Role</a>
+                            <a asp-controller="Role" asp-action="UserListRole" class="btn btn-danger btn-rounded btn-fw">User List</a>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            Id
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+
+                                        <th class="d-flex text-right">
+                                            Action
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        if (Model != null)
+                                            foreach (var item in Model)
+                                            {
+                                                <tr>
+
+
+                                                    <td>
+                                                        @item.Id
+                                                    </td>
+
+                                                    <td>
+                                                        @item.Name
+                                                    </td>
+
+                                                    <td class="d-flex justify-content-lg-start">
+
+                                                        @using (Html.BeginForm("Update", "Role", FormMethod.Get))
+                                                        {
+                                                            @Html.Hidden("id", item.Id)
+                                                            <input type="submit" class="btn btn-warning btn-rounded btn-fw" value="Edit" />
+                                                        }
+
+                                                        @using (Html.BeginForm("Delete", "Role", FormMethod.Post))
+                                                        {
+                                                            @Html.Hidden("id", item.Id)
+                                                            <input type="submit" class="btn btn-danger btn-rounded btn-fw" value="Delete" />
+                                                        }
+
+                                                    </td>
+
+                                                </tr>
+                                            }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

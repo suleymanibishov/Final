@@ -1,0 +1,161 @@
+﻿@model ShopVM
+
+<section id="Helpful-resources">
+    <div class="header">
+        <div class="count">
+            @Model.Categories.Count Articles
+        </div>
+        <div class="filter-by">
+            Filter by
+            <div class="topics">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip0_4_1111)">
+                        <path d="M3.33496 17.4998V11.6665" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.33496 8.33333V2.5" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.002 17.5V10" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.002 6.66667V2.5" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16.6689 17.5002V13.3335" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16.6689 10V2.5" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M0.834961 11.6665H5.83496" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7.50195 6.6665H12.502" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M14.1689 13.3335H19.1689" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_4_1111">
+                            <rect width="20" height="20" fill="white" transform="translate(0.00195312)" />
+                        </clipPath>
+                    </defs>
+                </svg>
+                All Topics
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5.00195 7.5L10.002 12.5L15.002 7.5" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="contend">
+        <h4>
+            Helpful resources & Articles.
+        </h4>
+        <div class="blogs">
+
+            @foreach (var item in Model.Products)
+            {
+                <div class="blog">
+                    <div class="img">
+                        <a>
+                            <img height="280" class="cart-img" width="320" src="~/assets/img/products/@item.Image">
+                        </a>
+                        <a data-id="@item.Id" class="basket-btn">
+                            <img class="cart-icon" src="~/assets/img/shopping-bag.svg">
+                        </a>
+                        <div class="content">
+                            <h3 class="title">@item.Title</h3>
+                            <p class="price">@item.Price$</p>
+                        </div>
+                    </div>
+                    <div class="tags">
+
+                        @foreach (var ctr in item.CategoryProducts)
+                        {
+                            <div class="tag">
+                                @ctr.Category.Name
+                            </div>
+                        }
+
+                    </div>
+                    <div class="descript">
+                        @item.Description
+                    </div>
+                </div>
+            }
+
+        </div>
+        @if (Model.PageCount > 1)
+        {
+
+            <form id="Pagination" asp-action="index">
+
+                @if (Model.Page == 1)
+                {
+                    <button asp-route-page="1" class="active">1</button>
+                    for (int i = 2; i <= Model.PageCount; i++)
+                    {
+                        <button asp-route-page="@i">@i</button>
+                    }
+                    <button asp-route-page="@(Model.Page+1)" class="active"> &gt; </button>
+                }
+                else if (Model.Page == Model.PageCount)
+                {
+                    <button asp-route-page="@(Model.Page-1)" class="active"> &lt; </button>
+                    for (int i = 1; i < Model.PageCount; i++)
+                    {
+                        <button asp-route-page="@i">@i</button>
+                    }
+                    <button asp-route-page="@Model.PageCount" class="active">@Model.PageCount</button>
+                }
+                else
+                {
+                    <button asp-route-page="@(Model.Page-1)" class="active"> &lt; </button>
+                    int i = 1;
+                    for (; i < Model.Page; i++)
+                    {
+                        <button asp-route-page="@i">@i</button>
+                    }
+                    <button asp-route-page="@i" class="active">@(i++)</button>
+                    for (; i <= Model.PageCount; i++)
+                    {
+                        <button asp-route-page="@i">@i</button>
+                    }
+                    <button asp-route-page="@(Model.Page+1)" class="active"> &gt; </button>
+                }
+            </form>
+        }
+    </div>
+</section>
+
+<div id="Filter">
+    <div class="all-screen"></div>
+    <div class="filter">
+        <div class="header">
+            <span>Filters</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M24 8L8 24" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M8 8L24 24" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="main">
+            <div class="row">
+                <div class="opt">
+                    All
+                </div>
+                @foreach (var item in Model.Categories)
+                {
+                    if (item.Name == Model.Categori)
+                    {
+                        <div class="opt active">
+                            @item.Name
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="opt">
+                            @item.Name
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="reset">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M23 4V10H17" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M20.4899 15C19.8399 16.8399 18.6094 18.4187 16.984 19.4985C15.3586 20.5783 13.4263 21.1006 11.4783 20.9866C9.53026 20.8726 7.67203 20.1286 6.18363 18.8667C4.69524 17.6047 3.6573 15.8932 3.22625 13.9901C2.79519 12.0869 2.99436 10.0952 3.79374 8.31508C4.59313 6.53496 5.94942 5.06288 7.65823 4.12065C9.36705 3.17843 11.3358 2.81711 13.2678 3.09116C15.1999 3.3652 16.9905 4.25975 18.3699 5.64001L22.9999 10" stroke="#232521" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Reset
+            </div>
+            <a>Show Results</a>
+        </div>
+    </div>
+</div>

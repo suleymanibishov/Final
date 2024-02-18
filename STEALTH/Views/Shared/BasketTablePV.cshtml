@@ -1,0 +1,43 @@
+﻿@model BasketVM
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Photo</th>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total-PRice</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            double totalprice = 0;
+            foreach (var product in Model.Basket.BasketProducts)
+            {
+                <tr data-id="@product.ProductId">
+                    <td>@(++i)</td>
+                    <td><img height="80" width="70" src="~/assets/img/products/@product.Product.Image" /> </td>
+                    <td>@product.Product.Title</td>
+                    <td><input type="number" min=1 asp-for="@product.Quantity"></td>
+                    <td>@String.Format("{0:0.00}", product.Product.Price)$</td>
+                    <td>
+                        <span class="amount">@String.Format("{0:0.00}", product.Product.Price * product.Quantity)$</span>
+                    </td>
+                    <td>
+                        <i style="cursor:pointer;" class="fa fa-times"></i>
+                    </td>
+                </tr>
+
+                totalprice += product.Product.Price * product.Quantity;
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <h5>
+        Total price : @String.Format("{0:0.00}", totalprice)$
+    </h5>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<RoleAssingVM>
+@{
+    ViewData["Title"] = "AssingRole";
+}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form asp-controller="Role" asp-action="AssingRole" method="post" class="forms-sample">
+
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <input type="hidden" asp-for="ToList()[i].Name" />
+                                <input type="hidden" asp-for="ToList()[i].RoleId" />
+                                <input type="checkbox" asp-for="ToList()[i].Exist" />
+                                <label class="form-check-label" for="@Model[i].Exist">@Model[i].Name</label>
+                            }
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

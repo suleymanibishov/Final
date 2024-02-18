@@ -1,0 +1,54 @@
+﻿@model AdminDashboardIndex
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="byRuslan" style="display:flex; justify-content:space-between;">
+                            <h5 class="card-title">Hover Table</h5>
+                            <a asp-action="Creat" class="btn btn-primary text-white">Create +</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{int i = 0;}
+                                    @foreach (var user in Model.Users)
+                                    {
+                                        <tr>
+                                            <th>
+                                                @(++i)
+                                            </th>
+                                            <th>
+                                                @user.Name
+                                            </th>
+                                            <th>
+                                                @user.Email
+                                            </th>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div><!--End Row-->

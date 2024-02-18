@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+body {
+    background: #FFF;
+    padding: 16px 130px;
+}
+
+header {
+
+    display: flex;
+    /* width: 1440px; */
+    padding: 16px 130px;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #E2E2E2;
+    background: #FFF;
+
+    .header-mdl {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+
+        .header-btn {
+            display: flex;
+            padding: 8px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            color: rgba(35, 37, 33, 0.50);
+
+            font-family: Inter;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            /* 133.333% */
+            text-transform: uppercase;
+
+            border-radius: 100px;
+
+            cursor: pointer;
+        }
+
+        .header-btn:hover {
+            background: #232521;
+            color: #FFF;
+            transition: .3s;
+        }
+
+        .active {
+
+            background: #232521;
+            color: #FFF;
+
+            font-family: Inter;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            /* 133.333% */
+            text-transform: uppercase;
+        }
+
+    }
+
+    .basket-login {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+
+        .login {
+            display: flex;
+            padding: 12px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            border-radius: 100px;
+            border: 1px solid #232521;
+
+            color: #232521;
+            cursor: pointer;
+
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+            /* 142.857% */
+            text-transform: uppercase;
+        }
+
+        .login:hover {
+            background: #232521;
+            color: #FFF;
+            transition: .3s;
+        }
+
+        .basket {
+            display: flex;
+            padding: 10px;
+            align-items: flex-start;
+            gap: 10px;
+            border-radius: 100px;
+
+        }
+
+        svg {
+            color: #232521;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+#FAQs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10%;
+    background: #D6DFDA;
+
+    h3{
+        color: #232521;
+        text-align: center;
+        font-family: Inter;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 48px; /* 150% */
+        letter-spacing: -1.28px;
+    }
+
+    span{
+        color: #131511f0;
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 133.333% */
+    }
+
+    div{
+        display: flex;
+        width: 420px;
+        padding: 20px 24px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 100px;
+        border: 2px solid #232521;
+        background: #FFF;
+
+        input{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            height: auto;
+            width: 100%;
+            outline: none;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+            
+        }
+
+        svg{
+            cursor: pointer;
+        }
+
+    }
+}
+
+#Questions{
+    padding: 5%;
+    .questions-head{
+        display: flex;
+        justify-content: space-between;
+        margin:20px 0px;
+        h2{
+            color: #232521;
+            font-family: Inter;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 48px; /* 150% */
+            letter-spacing: -1.28px;
+        }
+        div{
+            display: inline-flex;
+            padding: 12px 0px;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #232521;
+            a{
+                color: #232521;
+                text-align: center;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px; /* 150% */
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .questions{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .question-answare{
+            display: flex;
+            flex-direction: column;
+            gap:15px;
+            .question{
+                span{
+    
+                    color: #232521;
+                    font-family: Inter;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 24px; /* 133.333% */
+                }
+            }
+            .answare{
+                p{
+    
+                    color: #232521;
+                    font-family: Inter;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 28px; /* 155.556% */
+                }
+            }
+        }
+
+    }
+
+}
+
+#Helpful-resources{
+
+    padding: 5%;
+
+    .helpful-resources-head{
+        display: flex;
+        justify-content: space-between;
+        margin:20px 0px;
+        h2{
+            color: #232521;
+            font-family: Inter;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 48px; /* 150% */
+            letter-spacing: -1.28px;
+        }
+        div{
+            display: inline-flex;
+            padding: 12px 0px;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #232521;
+            a{
+                color: #232521;
+                text-align: center;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px; /* 150% */
+                text-transform: uppercase;
+            }
+        }
+
+    }
+    
+
+    .helpful-resources{
+        display: flex;
+        justify-content: space-between;
+        
+        .cart{
+
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+
+            
+            .tag{
+
+                display: flex;
+                padding: 2px 8px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                
+                border-radius: 100px;
+                border: 1px solid #232521;
+                
+                color: #232521;
+                text-align: center;
+                font-family: Inter;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 12px; /* 120% */
+                text-transform: uppercase;
+                
+            } 
+            p{
+                color: #232521;
+                font-family: Inter;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 24px; /* 150% */
+            }
+        }
+    }
+
+}
+
+#Still-have-questions{
+    background: #F6F6F6;
+    padding: 5%;
+    display: flex;
+    div{
+        width: 50%;
+        text-align: center;
+        h4{
+            color: #232521;
+            font-family: Inter;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 48px; /* 150% */
+            letter-spacing: -1.28px;
+        }
+        p{
+            color: #232521;
+            font-family: Inter;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 24px; /* 133.333% */
+            opacity: .6;
+        }
+        a{
+            display: inline-flex;
+            padding: 14px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 36px;
+            color: #FFF;
+            text-align: center;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px; /* 150% */
+            text-transform: uppercase;
+            
+            border-radius: 100px;
+            background: #232521;
+        }
+    }
+}
+
+footer{
+    display: flex;
+    padding: 24px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    border-top: 1px solid #E2E2E2;
+    background: #FFF;
+    ul{
+        display: flex;
+        gap: 35px;
+        li{
+            color: rgba(35, 37, 33, 0.40);
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px; /* 142.857% */
+            text-transform: uppercase;
+            a{
+                color: #232521;
+                font-family: Inter;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 20px; /* 142.857% */
+                text-transform: uppercase;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
